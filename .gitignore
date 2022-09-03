@@ -2,3 +2,4 @@
 *.pyo
 Pipfile
 Pipfile.lock
+teste.py
