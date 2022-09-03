@@ -23,6 +23,8 @@ def board():
 
     board=pygame.display.set_mode((width,height))
     board.fill((255, 255, 255))
+    
+    font_style = pygame.font.SysFont(None, 50)
 
     pygame.display.update()
     pygame.display.set_caption('snak')
