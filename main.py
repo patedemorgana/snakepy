@@ -1,6 +1,6 @@
 from functions import *
 
 def main():
-    board()
+    loop()
 
 main()
