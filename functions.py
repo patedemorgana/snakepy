@@ -2,10 +2,9 @@ from tkinter import font
 import time
 import pygame
 from variables import *
-
-def board():
+import random
+def loop():
     pygame.init()
-
     pygame.display.update()
     pygame.display.set_caption('snak')
     
@@ -13,10 +12,11 @@ def board():
         mnsg= font_style.render(msg, True, color)
         board.blit(mnsg, [width/3, height/3])
 
-    def loop():
-        perdeu = False
-
     while not perdeu:
+        while game_close == True:
+            board.fill(white)
+            message("You Lost! Press Q-Quit or C-Play Again", red)
+            pygame.display.update()
         for event in pygame.event.get():
 
             if event.type == pygame.QUIT:
