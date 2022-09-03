@@ -1,8 +1,13 @@
-from tkinter import * 
+import pygame
 
 def board():
-    top= Tk()
-    top.geometry("200x200")
-    c = Canvas(top,bg = 'white', height="200")
-    c.pack()
-    top.mainloop()
+    pygame.init()
+    dis=pygame.display.set_mode((400,300))
+    pygame.display.update()
+    pygame.display.set_caption('snak')
+    perdeu=False
+    while not perdeu:
+        for event in pygame.event.get():
+            print(event)
+    pygame.quit()        
+    quit()
