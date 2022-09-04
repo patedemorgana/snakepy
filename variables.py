@@ -13,8 +13,8 @@ green = (0, 255, 0)
 azul = (0, 0, 255)
 
 
-width = 1500
-height = 800
+width = 600
+height = 500
 a_height = height/2 - 10
 
 board = pygame.display.set_mode((width, height))

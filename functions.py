@@ -4,16 +4,17 @@ import random
 import variables
 
 pygame.init()
+
 pygame.display.set_caption('snak')
 
 def cobrinha(movimento, snake_list):
-    for x in variables.lista_da_cobrinha:
-        pygame.draw.rect(variables.board, variables.preto, [x[0], x[1], variables.movimento, variables.movimento] )
+    for i in snake_list:
+        pygame.draw.rect(variables.board, variables.preto, [i[0], i[1], variables.movimento, variables.movimento] )
 
  
 def message(msg, color):
     mesg = variables.fonte.render(msg, True, color)
-    variables.board.blit(mesg, [variables.width/4, variables.height/2])
+    variables.board.blit(mesg, [variables.width/8, variables.height/2])
  
  
 def loop(): 
@@ -60,7 +61,7 @@ def loop():
         variables.cabeça_da_cobrinha.append(variables.y1)
         variables.lista_da_cobrinha.append(variables.cabeça_da_cobrinha)
         if len(variables.lista_da_cobrinha) > variables.comprimento_da_cobrinha:
-            del variables.lista_da_cobrinha [0]
+            del variables.lista_da_cobrinha[0]
 
         for x in variables.lista_da_cobrinha[:-1]:
             if x == variables.cabeça_da_cobrinha:
@@ -71,7 +72,11 @@ def loop():
         pygame.display.update()
 
         if variables.x1 == variables.comidinhax and variables.y1 == variables.comidinhay:
+            variables.comidinhax = round(random.randrange(0, variables.width - variables.movimento) / 10.0) * 10.0
+            variables.comidinhay = round(random.randrange(0, variables.height - variables.movimento) / 10.0) * 10.0
             variables.comprimento_da_cobrinha += 1
+
+        print(variables.cabeça_da_cobrinha)
 
         variables.timer.tick(variables.velocidade)
  
