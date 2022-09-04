@@ -1,27 +1,43 @@
+import time
+import pygame
+from variables import *
+import random
+
+pygame.init()
+
+branco = (255, 255, 255)
+amarelo = (255, 255, 102)
+preto = (0, 0, 0)
+vermelho = (255, 0, 0)
+green = (0, 255, 0)
+azul = (0, 0, 255)
+
+
 width = 1500
 height = 800
 a_height = height/2 - 10
 
-white=(255, 255, 255)
-black=(0,0,0)
-red=(255,0,0)
+board = pygame.display.set_mode((width, height))
 
-x1 = width/2
-y1 = a_height
+timer = pygame.time.Clock()
+ 
+movimento = 10
+velocidade = 30
+lista_da_cobrinha = []
+comprimento_da_cobrinha = 1
+cabeça_da_cobrinha = []
+
+fonte_placar = pygame.font.SysFont("comicsansms", 35)
+fonte = pygame.font.SysFont(None, 30)
+
+fechar = False
+perder = False
+
+x1 = width / 2
+y1 = height / 2
 
 x1_mudando = 0
 y1_mudando = 0
 
-thing = False
-perdeu=False
-
-movimento = 10
-velocidade_da_cobrinha=30
-clock = pygame.time.Clock()
-
-board=pygame.display.set_mode((width,height))
-board.fill((255, 255, 255))
-font_style = pygame.font.SysFont(None, 50)
-
-comidinhax = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
-comidinhay = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
+comidinhax = round(random.randrange(10, width - movimento) / 10.0) * 10.0
+comidinhay = round(random.randrange(10, width - movimento) / 10.0) * 10.0
