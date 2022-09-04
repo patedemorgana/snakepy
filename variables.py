@@ -13,8 +13,8 @@ green = (0, 255, 0)
 azul = (0, 0, 255)
 
 
-width = 300
-height = 200
+width = 400
+height = 300
 a_height = height/2 - 10
 
 board = pygame.display.set_mode((width, height))
@@ -26,6 +26,7 @@ velocidade = 10
 lista_da_cobrinha = []
 comprimento_da_cobrinha = 1
 cabeça_da_cobrinha = []
+gambiarra = []
 
 fonte_placar = pygame.font.SysFont("comicsansms", 35)
 fonte = pygame.font.SysFont(None, 30)

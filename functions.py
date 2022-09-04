@@ -59,14 +59,15 @@ def loop():
         variables.cabeça_da_cobrinha.append(variables.x1)
         variables.cabeça_da_cobrinha.append(variables.y1)
         variables.lista_da_cobrinha.append(variables.cabeça_da_cobrinha)
+        variables.gambiarra = variables.cabeça_da_cobrinha
         variables.cabeça_da_cobrinha = []
         if len(variables.lista_da_cobrinha) > variables.comprimento_da_cobrinha:
             del variables.lista_da_cobrinha[0]
 
         for x in variables.lista_da_cobrinha[:-1]:
-            if x == variables.cabeça_da_cobrinha:
-                perder = True
-
+            if x == variables.gambiarra:
+                variables.perder = True
+        variables.gambiarra = []
         cobrinha(variables.movimento, variables.lista_da_cobrinha)
         
         pygame.display.update()
@@ -76,7 +77,7 @@ def loop():
             variables.comidinhay = round(random.randrange(10, variables.height - variables.movimento) / 10.0) * 10.0
             variables.comprimento_da_cobrinha += 1
 
-        print(variables.cabeça_da_cobrinha)
+        print(variables.lista_da_cobrinha)
 
         variables.timer.tick(variables.velocidade)
  
