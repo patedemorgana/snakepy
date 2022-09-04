@@ -8,13 +8,13 @@ pygame.init()
 pygame.display.set_caption('snak')
 
 def cobrinha(movimento, snake_list):
-    for i in snake_list:
+    for i in variables.lista_da_cobrinha:
         pygame.draw.rect(variables.board, variables.preto, [i[0], i[1], variables.movimento, variables.movimento] )
 
  
 def message(msg, color):
     mesg = variables.fonte.render(msg, True, color)
-    variables.board.blit(mesg, [variables.width/8, variables.height/2])
+    variables.board.blit(mesg, [variables.width/700, variables.a_height])
  
  
 def loop(): 
@@ -22,7 +22,8 @@ def loop():
  
         while variables.perder == True:
             variables.board.fill(variables.branco)
-            message("perdeu ruinzao! aperta Q-quitar ou C-perder de novo", variables.vermelho)
+            message("perdeu ruinzao! aperta Q-quitar", variables.vermelho)
+            
             pygame.display.update()
  
             for event in pygame.event.get():
@@ -30,8 +31,6 @@ def loop():
                     if event.key == pygame.K_q:
                         variables.fechar = True
                         variables.perder = False
-                    if event.key == pygame.K_c:
-                        loop()
  
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -60,6 +59,7 @@ def loop():
         variables.cabeça_da_cobrinha.append(variables.x1)
         variables.cabeça_da_cobrinha.append(variables.y1)
         variables.lista_da_cobrinha.append(variables.cabeça_da_cobrinha)
+        variables.cabeça_da_cobrinha = []
         if len(variables.lista_da_cobrinha) > variables.comprimento_da_cobrinha:
             del variables.lista_da_cobrinha[0]
 
@@ -72,8 +72,8 @@ def loop():
         pygame.display.update()
 
         if variables.x1 == variables.comidinhax and variables.y1 == variables.comidinhay:
-            variables.comidinhax = round(random.randrange(0, variables.width - variables.movimento) / 10.0) * 10.0
-            variables.comidinhay = round(random.randrange(0, variables.height - variables.movimento) / 10.0) * 10.0
+            variables.comidinhax = round(random.randrange(10, variables.width - variables.movimento) / 10.0) * 10.0
+            variables.comidinhay = round(random.randrange(10, variables.height - variables.movimento) / 10.0) * 10.0
             variables.comprimento_da_cobrinha += 1
 
         print(variables.cabeça_da_cobrinha)

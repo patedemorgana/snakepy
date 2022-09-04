@@ -13,8 +13,8 @@ green = (0, 255, 0)
 azul = (0, 0, 255)
 
 
-width = 600
-height = 500
+width = 300
+height = 200
 a_height = height/2 - 10
 
 board = pygame.display.set_mode((width, height))
@@ -22,7 +22,7 @@ board = pygame.display.set_mode((width, height))
 timer = pygame.time.Clock()
  
 movimento = 10
-velocidade = 30
+velocidade = 10
 lista_da_cobrinha = []
 comprimento_da_cobrinha = 1
 cabeça_da_cobrinha = []
